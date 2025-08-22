@@ -5,6 +5,7 @@
   "private": true,
   "description": "Sugandh's DevOps Engineer Portfolio - 4+ years of experience in cloud infrastructure, CI/CD, and automation",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "colorthief": "^2.3.0",
     "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
@@ -53,7 +54,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "prettier": "^2.3.1"
   }
 }
