@@ -125,3 +125,160 @@
     width: auto;
   }
 }
+
+/* Contact Buttons in Greeting Section */
+.contact-buttons-greeting {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 0;
+  position: relative;
+}
+
+.whatsapp-button-greeting,
+.email-button-greeting {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 1.8rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  min-width: 220px;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-button-greeting {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 50%, #075E54 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+  margin-left: 0;
+}
+
+.whatsapp-button-greeting:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+  background: linear-gradient(135deg, #075E54 0%, #128C7E 50%, #25D366 100%);
+}
+
+.whatsapp-button-greeting:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.email-button-greeting {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  margin-left: 0;
+}
+
+.email-button-greeting:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #f093fb 0%, #764ba2 50%, #667eea 100%);
+}
+
+.email-button-greeting:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.whatsapp-button-greeting i,
+.email-button-greeting i {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-button-greeting:hover i,
+.email-button-greeting:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.whatsapp-button-greeting::before,
+.email-button-greeting::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.whatsapp-button-greeting:hover::before,
+.email-button-greeting:hover::before {
+  left: 100%;
+}
+
+.whatsapp-button-greeting span,
+.email-button-greeting span {
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive for greeting buttons */
+@media (max-width: 768px) {
+  .contact-buttons-greeting {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+    margin-left: 0;
+  }
+
+  .whatsapp-button-greeting,
+  .email-button-greeting {
+    min-width: 220px;
+    padding: 1.3rem 1.8rem;
+    font-size: 0.95rem;
+    margin-left: 0;
+  }
+  
+  .whatsapp-button-greeting span,
+  .email-button-greeting span {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-buttons-greeting {
+    gap: 1rem;
+    margin: 1.2rem 0;
+  }
+
+  .whatsapp-button-greeting,
+  .email-button-greeting {
+    min-width: 200px;
+    padding: 1.1rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 20px;
+  }
+
+  .whatsapp-button-greeting span,
+  .email-button-greeting span {
+    font-size: 0.8rem;
+    letter-spacing: 0.6px;
+  }
+  
+  .whatsapp-button-greeting i,
+  .email-button-greeting i {
+    font-size: 1.2rem;
+  }
+}

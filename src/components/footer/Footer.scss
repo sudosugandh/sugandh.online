@@ -13,3 +13,29 @@
   margin-top: 2rem;
   padding-bottom: 1rem;
 }
+
+.footer-time {
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  margin-top: 0.5rem !important;
+  opacity: 0.8;
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark-mode .footer-time {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .footer-time {
+    font-size: 0.8rem !important;
+  }
+}

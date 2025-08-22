@@ -24,34 +24,111 @@ export default function Contact() {
             >
               {contactInfo.subtitle}
             </p>
-            <div
-              className={
-                isDark ? "dark-mode contact-text-div" : "contact-text-div"
-              }
-            >
+            
+            {/* Contact Cards */}
+            <div className="contact-cards-container">
               {contactInfo.number && (
-                <>
-                  <a
-                    className="contact-detail"
-                    href={"tel:" + contactInfo.number}
-                  >
-                    {contactInfo.number}
-                  </a>
-                  <br />
-                  <br />
-                </>
+                <Fade left duration={1000} distance="20px">
+                  <div className="contact-card">
+                    <div className="contact-card-icon">
+                      <i className="fas fa-phone-alt"></i>
+                    </div>
+                    <div className="contact-card-content">
+                      <h3>Call Me</h3>
+                      <a
+                        className="contact-detail"
+                        href={"tel:" + contactInfo.number}
+                      >
+                        {contactInfo.number}
+                      </a>
+                    </div>
+                  </div>
+                </Fade>
               )}
-              <a
-                className="contact-detail-email"
-                href={"mailto:" + contactInfo.email_address}
-              >
-                {contactInfo.email_address}
-              </a>
-              <br />
-              <br />
-              <SocialMedia />
+              
+              <Fade right duration={1000} distance="20px">
+                <div className="contact-card">
+                  <div className="contact-card-icon">
+                    <i className="fas fa-envelope"></i>
+                  </div>
+                  <div className="contact-card-content">
+                    <h3>Email Me</h3>
+                    <a
+                      className="contact-detail-email"
+                      href={"mailto:" + contactInfo.email_address}
+                    >
+                      {contactInfo.email_address}
+                    </a>
+                  </div>
+                </div>
+              </Fade>
+              
+              <Fade up duration={1000} distance="20px">
+                <div className="contact-card">
+                  <div className="contact-card-icon">
+                    <i className="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div className="contact-card-content">
+                    <h3>Location</h3>
+                    <p>Lucknow, Uttar Pradesh, India</p>
+                  </div>
+                </div>
+              </Fade>
+              
+              <Fade up duration={1000} distance="20px">
+                <div className="contact-card">
+                  <div className="contact-card-icon">
+                    <i className="fas fa-clock"></i>
+                  </div>
+                  <div className="contact-card-content">
+                    <h3>Available</h3>
+                    <p>Open for new opportunities</p>
+                  </div>
+                </div>
+              </Fade>
+            </div>
+
+            {/* Social Media Section */}
+            <div className="social-media-section">
+              <h3 className="social-media-title">Let's Connect on Social Media</h3>
+              <div className="social-media-container">
+                <SocialMedia />
+              </div>
+            </div>
+
+            {/* Quick Contact Form */}
+            <div className="quick-contact-section">
+              <h3 className="quick-contact-title">Quick Message</h3>
+              <div className="quick-contact-form">
+                <div className="form-group">
+                  <input 
+                    type="text" 
+                    placeholder="Your Name" 
+                    className="contact-input"
+                  />
+                </div>
+                <div className="form-group">
+                  <input 
+                    type="email" 
+                    placeholder="Your Email" 
+                    className="contact-input"
+                  />
+                </div>
+                <div className="form-group">
+                  <textarea 
+                    placeholder="Your Message" 
+                    className="contact-textarea"
+                    rows="4"
+                  ></textarea>
+                </div>
+                <button className="contact-submit-btn">
+                  <i className="fas fa-paper-plane"></i>
+                  Send Message
+                </button>
+              </div>
             </div>
           </div>
+          
           <div className="contact-image-div">
             {illustration.animated ? (
               <DisplayLottie animationData={email} />

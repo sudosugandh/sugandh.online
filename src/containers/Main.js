@@ -49,7 +49,7 @@ const Main = () => {
         {isShowingSplashAnimation && splashScreen.enabled ? (
           <SplashScreen />
         ) : (
-          <>
+          <div className="main-container">
             <Header />
             <Greeting />
             <Skills />
@@ -66,7 +66,7 @@ const Main = () => {
             <Profile />
             <Footer />
             <ScrollToTopButton />
-          </>
+          </div>
         )}
       </StyleProvider>
     </div>

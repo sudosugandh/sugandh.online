@@ -21,7 +21,6 @@ function Header() {
   const viewSkills = skillsSection.display;
   const viewAchievement = achievementSection.display;
   const viewBlog = blogSection.display;
-  const viewTalks = talkSection.display;
   const viewResume = resumeSection.display;
 
   return (
@@ -43,47 +42,66 @@ function Header() {
         <ul className={isDark ? "dark-menu menu" : "menu"}>
           {viewSkills && (
             <li>
-              <a href="#skills">Skills</a>
+              <a href="#skills" className="nav-link">
+                <i className="fas fa-code"></i>
+                Skills
+              </a>
             </li>
           )}
           {viewExperience && (
             <li>
-              <a href="#experience">Work Experiences</a>
+              <a href="#experience" className="nav-link">
+                <i className="fas fa-briefcase"></i>
+                Work Experiences
+              </a>
             </li>
           )}
           {viewOpenSource && (
             <li>
-              <a href="#opensource">Open Source</a>
+              <a href="#opensource" className="nav-link">
+                <i className="fab fa-github"></i>
+                Open Source
+              </a>
             </li>
           )}
           {viewAchievement && (
             <li>
-              <a href="#achievements">Achievements</a>
+              <a href="#achievements" className="nav-link">
+                <i className="fas fa-trophy"></i>
+                Achievements
+              </a>
             </li>
           )}
           {viewBlog && (
             <li>
-              <a href="#blogs">Blogs</a>
-            </li>
-          )}
-          {viewTalks && (
-            <li>
-              <a href="#talks">Talks</a>
+              <a href="#blogs" className="nav-link">
+                <i className="fas fa-blog"></i>
+                Blogs
+              </a>
             </li>
           )}
           {viewResume && (
             <li>
-              <a href="#resume">Resume</a>
+              <a href="#greeting" className="nav-link" onClick={(e) => {
+                e.preventDefault();
+                const resumeButton = document.querySelector('.download-link-button');
+                if (resumeButton) {
+                  resumeButton.click();
+                }
+              }}>
+                <i className="fas fa-file-alt"></i>
+                Resume
+              </a>
             </li>
           )}
           <li>
-            <a href="#contact">Contact Me</a>
-          </li>
-          <li>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a>
-              <ToggleSwitch />
+            <a href="#contact" className="nav-link contact-link">
+              <i className="fas fa-envelope"></i>
+              Contact Me
             </a>
+          </li>
+          <li className="theme-toggle">
+            <ToggleSwitch />
           </li>
         </ul>
       </header>

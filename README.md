@@ -1,6 +1,6 @@
-# Software Developer Folio ⚡️ [![GitHub](https://img.shields.io/github/license/saadpasta/developer-portfolio?color=blue)](https://github.com/saadpasta/developerFolio/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/saadpasta/developerFolio)](https://github.com/saadpasta/developerFolio/stargazers)  [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
+# Sugandh's DevOps Engineer Portfolio ⚡️ [![GitHub](https://img.shields.io/github/license/sugandh/devops-portfolio?color=blue)](https://github.com/sugandh/devops-portfolio/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/sugandh/devops-portfolio)](https://github.com/sugandh/devops-portfolio/stargazers)
 
-## A clean, beautiful and responsive portfolio template for Developers!
+## A DevOps Engineer Portfolio showcasing 4+ years of experience in cloud infrastructure, CI/CD, and automation!
 
 
 <p align="center">
@@ -10,11 +10,11 @@
 </p>
 
 
-Just change `src/portfolio.js` to get your personal portfolio. Customize portfolio theme by using your own color scheme globally in the  `src/_globalColor.scss` file. Feel free to use it as-is or personalize it as much as you want.
+This portfolio showcases Sugandh's expertise in DevOps engineering, including cloud platforms (AWS, Azure, GCP), containerization (Docker, Kubernetes), CI/CD pipelines, Infrastructure as Code (Terraform, Ansible), and monitoring solutions. Feel free to use this template as-is or personalize it for your own DevOps portfolio.
 
-If you'd like to **contribute** and make this much better for other users, have a look at [Issues](https://github.com/saadpasta/developerFolio/issues).
+If you'd like to **contribute** and make this much better for other DevOps engineers, have a look at [Issues](https://github.com/sugandh/devops-portfolio/issues).
 
-Created something awesome for your fork of the portfolio and want to share it? Feel free to open a [pull request](https://github.com/saadpasta/developerFolio/pulls).
+Created something awesome for your fork of the portfolio and want to share it? Feel free to open a [pull request](https://github.com/sugandh/devops-portfolio/pulls).
 
 ## Table of Contents
 - [Sections](#sections)
@@ -31,20 +31,20 @@ Created something awesome for your fork of the portfolio and want to share it? F
 
 ## Portfolio Sections
 ✔️ Summary and About me\
-✔️ Skills\
+✔️ DevOps Skills & Technologies\
 ✔️ Education\
 ✔️ Work Experience\
 ✔️ Open Source Projects Connected with GitHub\
-✔️ Big Projects\
+✔️ Infrastructure Projects\
 ✔️ Achievements And Certifications 🏆\
-✔️ Blogs\
-✔️ Talks\
+✔️ DevOps Blogs\
+✔️ Conference Talks\
 ✔️ Podcast\
 ✔️ Contact me\
 ✔️ Twitter Timeline\
 ✔️ GitHub Profile
 
-To view a live example, **[click here](https://developerfolio.js.org/)**.
+To view a live example, **[click here](https://sugandh-devops-portfolio.netlify.app/)**.
 
 
 ## Getting Started
