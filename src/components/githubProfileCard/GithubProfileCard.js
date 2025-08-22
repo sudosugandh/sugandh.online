@@ -4,6 +4,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {contactInfo, isHireable} from "../../portfolio";
 import emoji from "react-easy-emoji";
 import {Fade} from "react-reveal";
+import profileImage from "../../assets/images/sugandh-profile.jpg";
 
 
 export default function GithubProfileCard({prof}) {
@@ -12,8 +13,9 @@ export default function GithubProfileCard({prof}) {
   const [showCursor, setShowCursor] = useState(true);
   
   // Debug: Log the profile image path
-  const profileImage = require("../../assets/images/sugandh-profile.jpg");
   console.log("Profile image path:", profileImage);
+  console.log("Profile image type:", typeof profileImage);
+  console.log("Profile image value:", JSON.stringify(profileImage));
   
   // Try multiple paths
   const publicImagePath = process.env.PUBLIC_URL + "/sugandh-profile.jpg";
@@ -208,7 +210,7 @@ Best regards,
             
             {/* Debug: Show which path is being used */}
             <div style={{fontSize: '10px', color: 'red', marginTop: '5px'}}>
-              Debug: Trying to load from require path
+              Debug: Trying to load from import path: {String(profileImage).substring(0, 50)}...
             </div>
             
             {/* Animated Name and Profile Section */}
