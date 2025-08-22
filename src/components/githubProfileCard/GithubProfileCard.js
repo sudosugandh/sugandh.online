@@ -4,6 +4,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {contactInfo, isHireable} from "../../portfolio";
 import emoji from "react-easy-emoji";
 import {Fade} from "react-reveal";
+import profileImage from "../../assets/images/sugandh-profile.jpg";
 
 export default function GithubProfileCard({prof}) {
   const [displayText, setDisplayText] = useState("");
@@ -172,7 +173,7 @@ Best regards,
           <div className="image-content-profile">
             {/* Custom Profile Image - Replace with your photo */}
             <img
-              src={require("../../assets/images/sugandh-profile.jpg")}
+              src={profileImage}
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
               onError={(e) => {
