@@ -4,13 +4,16 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {contactInfo, isHireable} from "../../portfolio";
 import emoji from "react-easy-emoji";
 import {Fade} from "react-reveal";
-import profileImage from "../../assets/images/sugandh-profile.jpg";
 
 
 export default function GithubProfileCard({prof}) {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  
+  // Debug: Log the profile image path
+  const profileImage = require("../../assets/images/sugandh-profile.jpg");
+  console.log("Profile image path:", profileImage);
 
   const fullText = "Sugandh";
   const titleText = "DevOps Engineer | AI/ML Infrastructure Specialist";
@@ -177,8 +180,10 @@ Best regards,
               src={profileImage}
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
+              onLoad={() => console.log("Custom profile image loaded successfully")}
               onError={(e) => {
                 console.log("Image failed to load, falling back to GitHub avatar");
+                console.log("Attempted to load:", profileImage);
                 // Fallback to GitHub profile image if custom image not found
                 e.target.src = prof.avatarUrl;
               }}
