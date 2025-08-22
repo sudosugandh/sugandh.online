@@ -21,9 +21,11 @@ export default function GithubProfileCard({prof}) {
   const publicImagePath = process.env.PUBLIC_URL + "/sugandh-profile.jpg";
   const directPath = "/sugandh-profile.jpg";
   const simplePath = "/profile.jpg";
+  const workingImageUrl = "https://sugandh-online.onrender.com/static/media/sugandh-profile.59a0a78f3e0d8a999000.jpg";
   console.log("Public image path:", publicImagePath);
   console.log("Direct path:", directPath);
   console.log("Simple path:", simplePath);
+  console.log("Working image URL:", workingImageUrl);
 
   const fullText = "Sugandh";
   const titleText = "DevOps Engineer | AI/ML Infrastructure Specialist";
@@ -187,29 +189,35 @@ Best regards,
           <div className="image-content-profile">
             {/* Custom Profile Image - Replace with your photo */}
             <img
-              src={simplePath}
+              src={workingImageUrl}
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
-              onLoad={() => console.log("Custom profile image loaded successfully from simple path")}
+              onLoad={() => console.log("Custom profile image loaded successfully from working URL")}
               onError={(e) => {
-                console.log("Simple path failed, trying import path");
-                console.log("Attempted to load:", simplePath);
-                // Try the import path as fallback
-                e.target.src = profileImage;
+                console.log("Working URL failed, trying simple path");
+                console.log("Attempted to load:", workingImageUrl);
+                // Try the simple path as fallback
+                e.target.src = simplePath;
                 e.target.onerror = (e2) => {
-                  console.log("Import path failed, trying direct path");
-                  console.log("Attempted to load:", profileImage);
-                  // Try the direct path as fallback
-                  e2.target.src = directPath;
+                  console.log("Simple path failed, trying import path");
+                  console.log("Attempted to load:", simplePath);
+                  // Try the import path as fallback
+                  e2.target.src = profileImage;
                   e2.target.onerror = (e3) => {
-                    console.log("Direct path failed, trying public path");
-                    console.log("Attempted to load:", directPath);
-                    // Try the public path as fallback
-                    e3.target.src = publicImagePath;
+                    console.log("Import path failed, trying direct path");
+                    console.log("Attempted to load:", profileImage);
+                    // Try the direct path as fallback
+                    e3.target.src = directPath;
                     e3.target.onerror = (e4) => {
-                      console.log("Public path also failed, falling back to GitHub avatar");
-                      console.log("Attempted to load:", publicImagePath);
-                      e4.target.src = prof.avatarUrl;
+                      console.log("Direct path failed, trying public path");
+                      console.log("Attempted to load:", directPath);
+                      // Try the public path as fallback
+                      e4.target.src = publicImagePath;
+                      e4.target.onerror = (e5) => {
+                        console.log("Public path also failed, falling back to GitHub avatar");
+                        console.log("Attempted to load:", publicImagePath);
+                        e5.target.src = prof.avatarUrl;
+                      };
                     };
                   };
                 };
@@ -218,7 +226,7 @@ Best regards,
             
             {/* Debug: Show which path is being used */}
             <div style={{fontSize: '10px', color: 'red', marginTop: '5px'}}>
-              Debug: Trying to load from simple path: {simplePath}
+              Debug: Trying to load from working URL: {workingImageUrl.substring(0, 50)}...
             </div>
             
             {/* Animated Name and Profile Section */}
