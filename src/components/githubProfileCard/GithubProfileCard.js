@@ -25,7 +25,8 @@ export default function GithubProfileCard({prof}) {
   // Environment-specific image path
   const isProduction = process.env.NODE_ENV === 'production';
   const productionImageUrl = "https://sugandh-online.onrender.com/static/media/sugandh-profile.59a0a78f3e0d8a999000.jpg";
-  const primaryImagePath = isProduction ? productionImageUrl : simplePath;
+  // Use simple path for both environments since it should work on Render too
+  const primaryImagePath = simplePath;
   
   console.log("Environment:", process.env.NODE_ENV);
   console.log("Is production:", isProduction);
@@ -199,7 +200,7 @@ Best regards,
               src={primaryImagePath}
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
-              onLoad={() => console.log(`Custom profile image loaded successfully from ${isProduction ? 'production URL' : 'simple path'}`)}
+              onLoad={() => console.log("Custom profile image loaded successfully from simple path")}
               onError={(e) => {
                 console.log("Primary path failed, trying import path");
                 console.log("Attempted to load:", primaryImagePath);
@@ -227,7 +228,7 @@ Best regards,
             
             {/* Debug: Show which path is being used */}
             <div style={{fontSize: '10px', color: 'red', marginTop: '5px'}}>
-              Debug: Environment: {process.env.NODE_ENV} | Trying: {isProduction ? 'Production URL' : 'Simple Path'}
+              Debug: Environment: {process.env.NODE_ENV} | Trying: Simple Path ({simplePath})
             </div>
             
             {/* Animated Name and Profile Section */}
