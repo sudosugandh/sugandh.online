@@ -172,12 +172,12 @@ Best regards,
           <div className="image-content-profile">
             {/* Custom Profile Image - Replace with your photo */}
             <img
-              src="/sugandh-profile.jpg"
+              src="https://avatars.githubusercontent.com/u/sudosugandh?v=4"
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
               onError={(e) => {
-                // Fallback to GitHub profile image if custom image not found
-                e.target.src = prof.avatarUrl;
+                // Fallback to a default avatar if GitHub image fails
+                e.target.src = "https://via.placeholder.com/200x200/6366f1/ffffff?text=S";
               }}
             />
             
