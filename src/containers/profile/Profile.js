@@ -1,6 +1,6 @@
 import React, {useState, useEffect, lazy, Suspense} from "react";
 import {openSource} from "../../portfolio";
-
+import Contact from "../contact/Contact";
 import Loading from "../loading/Loading";
 
 const renderLoader = () => <Loading />;
@@ -47,10 +47,6 @@ export default function Profile() {
       </Suspense>
     );
   } else {
-    return (
-      <Suspense fallback={renderLoader()}>
-        <GithubProfileCard prof={{}} key="fallback" />
-      </Suspense>
-    );
+    return <Contact />;
   }
 }

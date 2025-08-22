@@ -172,9 +172,13 @@ Best regards,
           <div className="image-content-profile">
             {/* Custom Profile Image - Replace with your photo */}
             <img
-              src="https://avatars.githubusercontent.com/u/64632983?v=4"
+              src={require("../../assets/images/sugandh-profile.jpg")}
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
+              onError={(e) => {
+                // Fallback to GitHub profile image if custom image not found
+                e.target.src = prof.avatarUrl;
+              }}
             />
             
             {/* Animated Name and Profile Section */}
