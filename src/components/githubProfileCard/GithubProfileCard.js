@@ -172,7 +172,7 @@ Best regards,
           <div className="image-content-profile">
             {/* Custom Profile Image - Replace with your photo */}
             <img
-              src={require("../../assets/images/sugandh-profile.jpg")}
+              src="/sugandh-profile.jpg"
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
               onError={(e) => {
