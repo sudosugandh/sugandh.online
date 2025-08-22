@@ -4,6 +4,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {contactInfo, isHireable} from "../../portfolio";
 import emoji from "react-easy-emoji";
 import {Fade} from "react-reveal";
+import profileImage from "../../assets/images/sugandh-profile.jpg";
 
 
 export default function GithubProfileCard({prof}) {
@@ -173,10 +174,11 @@ Best regards,
           <div className="image-content-profile">
             {/* Custom Profile Image - Replace with your photo */}
             <img
-              src="/sugandh-profile.jpg"
+              src={profileImage}
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
               onError={(e) => {
+                console.log("Image failed to load, falling back to GitHub avatar");
                 // Fallback to GitHub profile image if custom image not found
                 e.target.src = prof.avatarUrl;
               }}
