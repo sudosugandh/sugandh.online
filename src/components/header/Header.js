@@ -94,7 +94,7 @@ function Header() {
             </li>
           )}
           <li>
-            <a href="#contact" className="nav-link contact-link">
+            <a href="#profile" className="nav-link contact-link">
               <i className="fas fa-envelope"></i>
               Contact Me
             </a>
