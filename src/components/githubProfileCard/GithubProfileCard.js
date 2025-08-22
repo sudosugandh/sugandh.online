@@ -15,9 +15,11 @@ export default function GithubProfileCard({prof}) {
   const profileImage = require("../../assets/images/sugandh-profile.jpg");
   console.log("Profile image path:", profileImage);
   
-  // Alternative approach - try using the public URL
+  // Try multiple paths
   const publicImagePath = process.env.PUBLIC_URL + "/sugandh-profile.jpg";
+  const directPath = "/sugandh-profile.jpg";
   console.log("Public image path:", publicImagePath);
+  console.log("Direct path:", directPath);
 
   const fullText = "Sugandh";
   const titleText = "DevOps Engineer | AI/ML Infrastructure Specialist";
@@ -181,22 +183,33 @@ Best regards,
           <div className="image-content-profile">
             {/* Custom Profile Image - Replace with your photo */}
             <img
-              src={publicImagePath}
+              src={directPath}
               alt="Sugandh - DevOps Engineer"
               className="profile-image"
-              onLoad={() => console.log("Custom profile image loaded successfully from public path")}
+              onLoad={() => console.log("Custom profile image loaded successfully from direct path")}
               onError={(e) => {
-                console.log("Public path failed, trying require path");
-                console.log("Attempted to load:", publicImagePath);
-                // Try the require path as fallback
-                e.target.src = profileImage;
+                console.log("Direct path failed, trying public path");
+                console.log("Attempted to load:", directPath);
+                // Try the public path as fallback
+                e.target.src = publicImagePath;
                 e.target.onerror = (e2) => {
-                  console.log("Require path also failed, falling back to GitHub avatar");
-                  console.log("Attempted to load:", profileImage);
-                  e2.target.src = prof.avatarUrl;
+                  console.log("Public path failed, trying require path");
+                  console.log("Attempted to load:", publicImagePath);
+                  // Try the require path as fallback
+                  e2.target.src = profileImage;
+                  e2.target.onerror = (e3) => {
+                    console.log("Require path also failed, falling back to GitHub avatar");
+                    console.log("Attempted to load:", profileImage);
+                    e3.target.src = prof.avatarUrl;
+                  };
                 };
               }}
             />
+            
+            {/* Debug: Show which path is being used */}
+            <div style={{fontSize: '10px', color: 'red', marginTop: '5px'}}>
+              Debug: Trying to load from {directPath}
+            </div>
             
             {/* Animated Name and Profile Section */}
             <div className="profile-info-container">
