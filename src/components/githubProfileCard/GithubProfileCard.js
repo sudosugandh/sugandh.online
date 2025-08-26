@@ -17,8 +17,8 @@ export default function GithubProfileCard({prof}) {
   const directPath = "/sugandh-profile.jpg";
   const simplePath = "/profile.jpg";
   
-  // Use the full URL that we confirmed works
-  const primaryImagePath = "https://sugandh-online.onrender.com/sugandh-profile.jpg";
+  // Use the full URL that we confirmed works with cache busting
+  const primaryImagePath = "https://sugandh-online.onrender.com/sugandh-profile.jpg?v=" + Date.now();
 
   const fullText = "Sugandh";
   const titleText = "DevOps Engineer | AI/ML Infrastructure Specialist";
