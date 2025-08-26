@@ -12,14 +12,8 @@ export default function GithubProfileCard({prof}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
   
-  // Use simple paths that match your actual file name
-  const publicImagePath = process.env.PUBLIC_URL + "/sugandh-profile.png";
-  const directPath = "/sugandh-profile.png";
-  const simplePath = "/profile.png";
-  
-  // Use the full URL that we confirmed works with cache busting
-  const primaryImagePath = "https://sugandh-online.onrender.com/sugandh-profile.png?v=2025-08-26";
-  console.log("Loading custom profile image:", primaryImagePath);
+  // Use simple path for the PNG image
+  const primaryImagePath = "/sugandh-profile.png";
 
   const fullText = "Sugandh";
   const titleText = "DevOps Engineer | AI/ML Infrastructure Specialist";
