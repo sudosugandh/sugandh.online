@@ -13,12 +13,12 @@ export default function GithubProfileCard({prof}) {
   const [showCursor, setShowCursor] = useState(true);
   
   // Use simple paths that match your actual file name
-  const publicImagePath = process.env.PUBLIC_URL + "/sugandh-profile.jpg";
-  const directPath = "/sugandh-profile.jpg";
-  const simplePath = "/profile.jpg";
+  const publicImagePath = process.env.PUBLIC_URL + "/sugandh-profile.png";
+  const directPath = "/sugandh-profile.png";
+  const simplePath = "/profile.png";
   
   // Use the full URL that we confirmed works with cache busting
-  const primaryImagePath = "https://sugandh-online.onrender.com/sugandh-profile.jpg?v=2025-08-26";
+  const primaryImagePath = "https://sugandh-online.onrender.com/sugandh-profile.png?v=2025-08-26";
   console.log("Loading custom profile image:", primaryImagePath);
 
   const fullText = "Sugandh";
