@@ -38,8 +38,8 @@ const socialMediaLinks = {
   gmail: "ksugandh0@gmail.com",
   gitlab: "https://gitlab.com/sugandhdevops",
   facebook: "https://www.facebook.com/sugandh.kumar",
-  twitter: "https://twitter.com/sugandh_devops",
-  instagram: "https://www.instagram.com/sugandh_devops",
+  twitter: "https://twitter.com/the__sugandh",
+  instagram: "https://www.instagram.com/the_sugandh",
   stackoverflow: "https://stackoverflow.com/users/sugandh-devops"
 };
 

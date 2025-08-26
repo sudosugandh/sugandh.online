@@ -141,10 +141,10 @@ Best regards,
               <a href="https://gitlab.com/sugandhdevops" target="_blank" rel="noopener noreferrer" className="social-logo-link">
                 <i className="fab fa-gitlab"></i>
               </a>
-              <a href="https://www.instagram.com/sugandh_devops" target="_blank" rel="noopener noreferrer" className="social-logo-link">
+              <a href="https://www.instagram.com/the_sugandh" target="_blank" rel="noopener noreferrer" className="social-logo-link">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="https://twitter.com/sugandh_devops" target="_blank" rel="noopener noreferrer" className="social-logo-link">
+              <a href="https://twitter.com/the__sugandh" target="_blank" rel="noopener noreferrer" className="social-logo-link">
                 <i className="fab fa-twitter"></i>
               </a>
               <a href="mailto:ksugandh0@gmail.com" className="social-logo-link">
