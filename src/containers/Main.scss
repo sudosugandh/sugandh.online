@@ -11,6 +11,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   transition: all 0.3s ease;
+  overflow-x: hidden;
 }
 
 .dark-mode .main-container {
@@ -19,7 +20,7 @@
 
 /* Section spacing and styling */
 .section {
-  padding: 5rem 0;
+  padding: 2rem 0;
   position: relative;
   overflow: hidden;
 }
@@ -35,12 +36,12 @@
 /* Section headers */
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -48,10 +49,11 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
+  line-height: 1.2;
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: $subTitle;
   max-width: 600px;
   margin: 0 auto;
@@ -62,41 +64,129 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
-/* Responsive improvements */
-@media (max-width: 768px) {
+/* Mobile-first responsive improvements */
+@media (min-width: 768px) {
   .section {
     padding: 3rem 0;
   }
   
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  
   .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   
   .section-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .container {
-    padding: 0 1rem;
+    padding: 0 2rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1024px) {
   .section {
-    padding: 2rem 0;
+    padding: 4rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 4rem;
   }
   
   .section-title {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 767px) {
+  .section {
+    padding: 1.5rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+  
+  .container {
+    padding: 0 0.8rem;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 767px) and (orientation: landscape) {
+  .section {
+    padding: 1rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.8rem;
   }
 }
 
 /* Smooth transitions for all elements */
 * {
   transition: all 0.3s ease;
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .section-title,
+  .section-subtitle {
+    transition: none;
+  }
+}
+
+/* High DPI display optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .section-title {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    transition: none;
+  }
+  
+  .section-title,
+  .section-subtitle {
+    transition: none;
+  }
 }
 
 /* Enhanced focus states */

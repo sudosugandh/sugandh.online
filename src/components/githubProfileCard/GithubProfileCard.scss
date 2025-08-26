@@ -453,82 +453,93 @@
 /* Enhanced Media Queries */
 @media (max-width: 768px) {
   .row {
-    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .main-content-profile {
     text-align: center;
     order: 2;
+    flex: 100%;
   }
 
   .bio-text {
     font-size: 16px;
+    line-height: 1.6;
+    padding: 0 1rem;
   }
 
   .image-content-profile {
-    margin-left: auto;
-    margin-right: auto;
     order: 1;
+    flex: 100%;
+    text-align: center;
+    margin: 0 auto;
   }
 
   .desc-prof {
-    line-height: 30px;
+    line-height: 1.5;
     font-size: 16px;
+    padding: 0 1rem;
   }
 
   .profile-image {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
     height: auto;
+    border-radius: 15px;
   }
 
   .profile-image:hover {
-    box-shadow: $lightBoxShadow 0 50px 50px -50px;
-    transition: 0.3s ease-out;
+    transform: none;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
   }
 
   .prof-title {
     padding-bottom: 1rem;
-    font-size: 32px;
+    font-size: 28px;
     text-align: center;
+    line-height: 1.2;
   }
 
   /* Branding Logo Mobile */
   .branding-logo {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
   }
 
   .branding-tag {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin: 0 0.3rem;
   }
 
   .branding-name {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .typing-text {
-    font-size: 2.2rem;
+    font-size: 2rem;
     letter-spacing: 2px;
+    line-height: 1.2;
   }
   
   .title-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 1.5px;
+    line-height: 1.4;
   }
   
   .profile-stats {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    margin: 1.5rem 0;
   }
   
   .stat-item {
-    min-width: 130px;
+    min-width: 140px;
     padding: 1.2rem 1rem;
+    margin: 0.5rem 0;
   }
   
   .stat-number {
@@ -542,6 +553,7 @@
   .profile-info-container {
     padding: 1.5rem;
     margin-top: 1.5rem;
+    border-radius: 20px;
   }
 
   .contact-buttons {
@@ -553,46 +565,91 @@
 
   .whatsapp-button,
   .email-button {
-    min-width: 220px;
+    min-width: 240px;
     padding: 1.3rem 1.8rem;
     font-size: 0.95rem;
+    border-radius: 15px;
   }
   
   .whatsapp-button span,
   .email-button span {
     font-size: 0.85rem;
   }
+
+  .social-media-logos {
+    gap: 1rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+  }
+
+  .social-logo-link {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-logo-link i {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .row {
+    gap: 1.5rem;
+  }
+
+  .main-content-profile {
+    padding: 0 0.5rem;
+  }
+
+  .bio-text {
+    font-size: 15px;
+    padding: 0 0.5rem;
+  }
+
+  .desc-prof {
+    font-size: 15px;
+    padding: 0 0.5rem;
+  }
+
+  .profile-image {
+    max-width: 250px;
+    border-radius: 12px;
+  }
+
+  .prof-title {
+    font-size: 24px;
+    padding-bottom: 0.8rem;
+  }
+
   /* Branding Logo Small Mobile */
   .branding-logo {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 1.2rem;
   }
 
   .branding-tag {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin: 0 0.2rem;
   }
 
   .branding-name {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .typing-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 1.5px;
   }
   
   .title-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 1px;
   }
   
   .profile-info-container {
     padding: 1.2rem;
-    border-radius: 20px;
+    border-radius: 15px;
+    margin-top: 1.2rem;
   }
 
   .stat-item {
@@ -615,10 +672,10 @@
 
   .whatsapp-button,
   .email-button {
-    min-width: 200px;
+    min-width: 220px;
     padding: 1.1rem 1.5rem;
     font-size: 0.9rem;
-    border-radius: 18px;
+    border-radius: 12px;
   }
 
   .whatsapp-button span,
@@ -631,38 +688,131 @@
   .email-button i {
     font-size: 1.2rem;
   }
+
+  .social-media-logos {
+    gap: 0.8rem;
+    margin: 1.2rem 0;
+  }
+
+  .social-logo-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-logo-link i {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 360px) {
+  .row {
+    gap: 1rem;
+  }
+
+  .main-content-profile {
+    padding: 0 0.3rem;
+  }
+
+  .bio-text {
+    font-size: 14px;
+    padding: 0 0.3rem;
+  }
+
+  .desc-prof {
+    font-size: 14px;
+    padding: 0 0.3rem;
+  }
+
+  .profile-image {
+    max-width: 220px;
+    border-radius: 10px;
+  }
+
+  .prof-title {
+    font-size: 22px;
+    padding-bottom: 0.6rem;
+  }
+
   /* Branding Logo Extra Small */
   .branding-logo {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
   }
 
   .branding-tag {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0 0.15rem;
   }
 
   .branding-name {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  .typing-text {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+
+  .title-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+  }
+
+  .profile-info-container {
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+  }
+
+  .stat-item {
+    min-width: 100px;
+    padding: 0.8rem 0.6rem;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
   }
 
   .contact-buttons {
     gap: 0.8rem;
+    margin: 1.2rem 0;
   }
 
   .whatsapp-button,
   .email-button {
-    min-width: 180px;
+    min-width: 200px;
     padding: 1rem 1.3rem;
     font-size: 0.85rem;
+    border-radius: 10px;
   }
 
   .whatsapp-button span,
   .email-button span {
     font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .whatsapp-button i,
+  .email-button i {
+    font-size: 1.1rem;
+  }
+
+  .social-media-logos {
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+
+  .social-logo-link {
+    width: 35px;
+    height: 35px;
+  }
+
+  .social-logo-link i {
+    font-size: 1.1rem;
   }
 }
 
@@ -946,5 +1096,128 @@
 
   .social-logo-link i {
     font-size: 1.2rem;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .row {
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .main-content-profile {
+    order: 2;
+    flex: 60%;
+    text-align: left;
+  }
+
+  .image-content-profile {
+    order: 1;
+    flex: 40%;
+    text-align: center;
+  }
+
+  .profile-image {
+    max-width: 200px;
+  }
+
+  .profile-info-container {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .contact-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .whatsapp-button,
+  .email-button {
+    min-width: 180px;
+    padding: 1rem 1.5rem;
+  }
+
+  .profile-stats {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .stat-item {
+    min-width: 100px;
+    padding: 0.8rem 0.6rem;
+  }
+}
+
+/* Touch-friendly interactions for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .profile-image:hover {
+    transform: none !important;
+  }
+
+  .stat-item:hover {
+    transform: none !important;
+  }
+
+  .whatsapp-button:hover,
+  .email-button:hover {
+    transform: none !important;
+  }
+
+  .social-logo-link:hover {
+    transform: none !important;
+  }
+
+  .social-logo-link:hover i {
+    transform: none !important;
+  }
+
+  .whatsapp-button:hover i,
+  .email-button:hover i {
+    transform: none !important;
+  }
+
+  .branding-logo:hover .branding-tag {
+    transform: none !important;
+  }
+
+  .branding-logo:hover .branding-name {
+    transform: none !important;
+  }
+}
+
+/* High DPI display optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .profile-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .profile-image,
+  .stat-item,
+  .whatsapp-button,
+  .email-button,
+  .social-logo-link,
+  .branding-logo,
+  .typing-text,
+  .title-text,
+  .stat-number {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .cursor {
+    animation: none !important;
+  }
+
+  .profile-info-container::before,
+  .profile-info-container::after {
+    animation: none !important;
   }
 }
