@@ -18,7 +18,8 @@ export default function GithubProfileCard({prof}) {
   const simplePath = "/profile.jpg";
   
   // Use the full URL that we confirmed works with cache busting
-  const primaryImagePath = "https://sugandh-online.onrender.com/sugandh-profile.jpg?v=" + Date.now();
+  const primaryImagePath = "https://sugandh-online.onrender.com/sugandh-profile.jpg?v=2025-08-26";
+  console.log("Loading custom profile image:", primaryImagePath);
 
   const fullText = "Sugandh";
   const titleText = "DevOps Engineer | AI/ML Infrastructure Specialist";
