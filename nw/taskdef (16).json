@@ -1,0 +1,134 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:733456113595:task-definition/staging-api-taskdef:196",
+    "containerDefinitions": [
+        {
+            "name": "staging-api",
+            "image": "<IMAGE1_NAME>",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "staging-api-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "REDIS_HOST",
+                    "value": "v2-eureka-socket.v3xjxg.ng.0001.apse1.cache.amazonaws.com"
+                },
+                {
+                    "name": "DB_USERNAME",
+                    "value": "admin"
+                },
+                {
+                    "name": "DB_HOST",
+                    "value": "production-eureka-v2.cluster-cjx47cguydnt.ap-southeast-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "DB_POR",
+                    "value": "3306"
+                },
+                {
+                    "name": "DB_DATABASE",
+                    "value": "eureka_stg_V2"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "value": "pO7Zz80u3"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/staging-api-taskdef",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "ap-southeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "healthCheck": {
+                "command": [
+                    "CMD-SHELL",
+                    "curl -f http://localhost:80/healthcheck || exit 1"
+                ],
+                "interval": 30,
+                "timeout": 5,
+                "retries": 3,
+                "startPeriod": 60
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "staging-api-taskdef",
+    "taskRoleArn": "arn:aws:iam::733456113595:role/ecsTaskRoleEureka",
+    "executionRoleArn": "arn:aws:iam::733456113595:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 196,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.container-health-check"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2025-08-22T09:01:16.238Z",
+    "registeredBy": "arn:aws:iam::733456113595:user/shashank-dev",
+    "enableFaultInjection": false,
+    "tags": [
+        {
+            "key": "env",
+            "value": "staging"
+        }
+    ]
+}
+           
