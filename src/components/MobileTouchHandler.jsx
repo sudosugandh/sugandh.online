@@ -99,7 +99,12 @@ const MobileTouchHandler = ({ children, className = '', onSwipeLeft, onSwipeRigh
         x,
         y,
         scale,
-        rotate
+        rotate,
+        cursor: isMobile ? 'default' : 'grab',
+        touchAction: 'manipulation',
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
+        WebkitTouchCallout: 'none'
       }}
       animate={controls}
       drag={!isMobile}
@@ -114,13 +119,6 @@ const MobileTouchHandler = ({ children, className = '', onSwipeLeft, onSwipeRigh
       onLongPress={handleLongPress}
       whileHover={!isMobile ? { scale: 1.02 } : {}}
       whileTap={{ scale: 0.98 }}
-      style={{
-        cursor: isMobile ? 'default' : 'grab',
-        touchAction: 'manipulation',
-        userSelect: 'none',
-        WebkitUserSelect: 'none',
-        WebkitTouchCallout: 'none'
-      }}
     >
       {children}
     </motion.div>

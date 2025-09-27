@@ -210,7 +210,7 @@ const Home = () => {
   return (
     <div style={{ minHeight: '100vh' }}>
       {/* Hero Section */}
-      <section style={{
+      <section style={{ 
         background: isDarkMode 
           ? '#0f172a'
           : '#ffffff',
@@ -221,7 +221,7 @@ const Home = () => {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem', width: '100%' }}>
           {/* Main Hero Content */}
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <motion.div
+          <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -252,12 +252,12 @@ const Home = () => {
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  style={{
+              style={{
                     background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
                     color: 'white',
                     border: 'none',
                     padding: '1rem 2.5rem',
-                    borderRadius: '2rem',
+                borderRadius: '2rem',
                     fontSize: '1.125rem',
                     fontWeight: '600',
                     cursor: 'pointer',
@@ -312,7 +312,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                style={{
+              style={{ 
                   background: isDarkMode 
                     ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)'
                     : 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%)',
@@ -361,8 +361,8 @@ const Home = () => {
                     <div>
                       <span style={{
                         background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                         fontSize: '0.875rem',
                         fontWeight: '600',
                         textTransform: 'uppercase',
@@ -441,7 +441,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                style={{
+              style={{ 
                   background: isDarkMode 
                     ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%)'
                     : 'linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%)',
@@ -515,7 +515,7 @@ const Home = () => {
                   <p style={{
                     fontSize: '1.125rem',
                     color: isDarkMode ? '#cbd5e1' : '#64748b',
-                    lineHeight: '1.6',
+                lineHeight: '1.6',
                     marginBottom: '1.5rem'
                   }}>
                     Revolutionize property management with our advanced real estate platform. Features virtual tours, AI-powered property matching, and comprehensive CRM for real estate professionals.
@@ -575,11 +575,11 @@ const Home = () => {
             marginBottom: '4rem'
           }}>
             {/* Web Development Card */}
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              style={{
+              style={{ 
                 background: isDarkMode 
                   ? 'rgba(30, 41, 59, 0.5)'
                   : 'rgba(255, 255, 255, 0.8)',
@@ -598,8 +598,8 @@ const Home = () => {
                 height: '60px',
                 background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
                 borderRadius: '1rem',
-                display: 'flex',
-                alignItems: 'center',
+                display: 'flex', 
+                alignItems: 'center', 
                 justifyContent: 'center',
                 margin: '0 auto 1.5rem',
                 boxShadow: '0 10px 25px rgba(59, 130, 246, 0.3)'
@@ -677,7 +677,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              style={{
+                  style={{
                 background: isDarkMode 
                   ? 'rgba(30, 41, 59, 0.5)'
                   : 'rgba(255, 255, 255, 0.8)',
@@ -719,7 +719,7 @@ const Home = () => {
               }}>
                 Scalable cloud solutions and infrastructure management for reliable, secure, and cost-effective operations.
               </p>
-            </motion.div>
+              </motion.div>
           </div>
 
           {/* Trust Indicators */}
@@ -727,7 +727,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            style={{
+                  style={{
               textAlign: 'center',
               padding: '2rem',
               background: isDarkMode 
@@ -906,7 +906,7 @@ const Home = () => {
                 }}>
                   {feature.description}
                 </p>
-                    </motion.div>
+                </motion.div>
             ))}
           </div>
         </div>
