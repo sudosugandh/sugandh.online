@@ -198,12 +198,14 @@ const About = () => {
       />
       <div style={{ 
         minHeight: '100vh', 
-        backgroundColor: isDarkMode ? '#111827' : '#f8fafc',
+        backgroundColor: isDarkMode ? '#0f172a' : '#fafbfc',
         transition: 'background-color 0.3s ease'
       }}>
-      {/* Hero Section */}
-      <section className="hero" style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+      {/* Hero Section - Full Viewport */}
+      <section className="hero-full" style={{
+        background: isDarkMode 
+          ? 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #581c87 100%)'
+          : 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -232,7 +234,7 @@ const About = () => {
           ]}
         />
         
-        <div className="hero-content" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
+        <div className="container-premium hero-content" style={{ position: 'relative', zIndex: 2 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -333,13 +335,12 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="stats" style={{ 
-        padding: '6rem 0',
-        backgroundColor: '#fafafa',
+      <section className="section-premium stats" style={{ 
+        backgroundColor: isDarkMode ? '#1e293b' : '#fafafa',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div className="stats-content" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div className="stats-content container-premium">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -363,7 +364,7 @@ const About = () => {
                   scaleOnHover={1.02}
                   style={{
                     padding: '3rem 2rem',
-                    background: '#ffffff',
+                    background: isDarkMode ? '#334155' : '#ffffff',
                     borderRadius: '1.5rem',
                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                     border: '1px solid rgba(0, 0, 0, 0.05)',
@@ -399,17 +400,26 @@ const About = () => {
                     textAlign: 'center',
                     lineHeight: '1'
                   }}>
-                    <AnimatedCounter 
-                      end={stat.number === '5+' ? 5 : stat.number === '100+' ? 100 : stat.number === '50+' ? 50 : 24} 
-                      suffix={stat.number.includes('+') ? '+' : ''}
-                      duration={2}
-                      style={{
+                    {stat.number === '24/7' ? (
+                      <span style={{
                         fontSize: '3.5rem',
                         fontWeight: '700',
-                        fontFamily: 'Poppins, system-ui, sans-serif',
-                        color: '#1f2937'
-                      }}
-                    />
+                        fontFamily: 'Syne, system-ui, sans-serif',
+                        color: isDarkMode ? '#f8fafc' : '#1f2937'
+                      }}>24/7</span>
+                    ) : (
+                      <AnimatedCounter 
+                        end={stat.number === '5+' ? 5 : stat.number === '100+' ? 100 : 50} 
+                        suffix="+"
+                        duration={2}
+                        style={{
+                          fontSize: '3.5rem',
+                          fontWeight: '700',
+                          fontFamily: 'Syne, system-ui, sans-serif',
+                          color: isDarkMode ? '#f8fafc' : '#1f2937'
+                        }}
+                      />
+                    )}
                   </div>
                   <div style={{ 
                     color: '#6b7280', 
@@ -620,8 +630,8 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#ffffff' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#0f172a' : '#ffffff' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -631,14 +641,14 @@ const About = () => {
             <h2 style={{
               fontSize: '2.8rem',
               fontWeight: '800',
-              color: '#1f2937',
+              color: isDarkMode ? '#f8fafc' : '#1f2937',
               marginBottom: '1rem'
             }}>
               Our Core Values
             </h2>
             <p style={{
               fontSize: '1.2rem',
-              color: '#6b7280',
+              color: isDarkMode ? '#94a3b8' : '#6b7280',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
@@ -659,12 +669,12 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '#1e293b' : 'white',
                   borderRadius: '1.5rem',
                   padding: '2.5rem',
                   textAlign: 'center',
-                  boxShadow: '0 8px 15px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee',
+                  boxShadow: isDarkMode ? '0 8px 15px rgba(0,0,0,0.2)' : '0 8px 15px rgba(0,0,0,0.05)',
+                  border: isDarkMode ? '1px solid #334155' : '1px solid #eee',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -672,7 +682,7 @@ const About = () => {
                   margin: '0 auto 1.5rem',
                   padding: '1.5rem',
                   borderRadius: '50%',
-                  backgroundColor: value.color + '15',
+                  backgroundColor: value.color + '20',
                   width: '80px',
                   height: '80px',
                   display: 'flex',
@@ -681,10 +691,10 @@ const About = () => {
                 }}>
                   <value.icon style={{ width: '36px', height: '36px', color: value.color }} />
                 </div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.75rem', color: '#1f2937' }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.75rem', color: isDarkMode ? '#f8fafc' : '#1f2937' }}>
                   {value.title}
                 </h3>
-                <p style={{ color: '#6b7280', lineHeight: '1.6' }}>
+                <p style={{ color: isDarkMode ? '#94a3b8' : '#6b7280', lineHeight: '1.6' }}>
                   {value.description}
                 </p>
               </motion.div>
@@ -694,8 +704,8 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#f8f8f8' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#1e293b' : '#f8fafc' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -705,14 +715,14 @@ const About = () => {
             <h2 style={{
               fontSize: '2.8rem',
               fontWeight: '800',
-              color: '#1f2937',
+              color: isDarkMode ? '#f8fafc' : '#1f2937',
               marginBottom: '1rem'
             }}>
               Meet Our Team
             </h2>
             <p style={{
               fontSize: '1.2rem',
-              color: '#6b7280',
+              color: isDarkMode ? '#94a3b8' : '#6b7280',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
@@ -732,12 +742,12 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '#334155' : 'white',
                   borderRadius: '1.5rem',
                   padding: '2rem',
                   textAlign: 'center',
-                  boxShadow: '0 8px 15px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee',
+                  boxShadow: isDarkMode ? '0 8px 15px rgba(0,0,0,0.2)' : '0 8px 15px rgba(0,0,0,0.05)',
+                  border: isDarkMode ? '1px solid #475569' : '1px solid #eee',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -747,7 +757,7 @@ const About = () => {
                   borderRadius: '50%',
                   margin: '0 auto 1.5rem',
                   overflow: 'hidden',
-                  border: '4px solid #f3f4f6'
+                  border: isDarkMode ? '4px solid #475569' : '4px solid #f3f4f6'
                 }}>
                   <img
                     src={member.image}
@@ -759,13 +769,13 @@ const About = () => {
                     }}
                   />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem', color: '#1f2937' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem', color: isDarkMode ? '#f8fafc' : '#1f2937' }}>
                   {member.name}
                 </h3>
                 <p style={{ color: '#3b82f6', fontWeight: '600', marginBottom: '1rem' }}>
                   {member.role}
                 </p>
-                <p style={{ color: '#6b7280', lineHeight: '1.6', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+                <p style={{ color: isDarkMode ? '#94a3b8' : '#6b7280', lineHeight: '1.6', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
                   {member.bio}
                 </p>
                 
@@ -877,8 +887,8 @@ const About = () => {
       </section>
 
       {/* Company Culture Section */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#ffffff' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#0f172a' : '#ffffff' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -888,14 +898,14 @@ const About = () => {
             <h2 style={{
               fontSize: '2.8rem',
               fontWeight: '800',
-              color: '#1f2937',
+              color: isDarkMode ? '#f8fafc' : '#1f2937',
               marginBottom: '1rem'
             }}>
               Our Culture & Work Environment
             </h2>
             <p style={{
               fontSize: '1.2rem',
-              color: '#6b7280',
+              color: isDarkMode ? '#94a3b8' : '#6b7280',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
@@ -941,12 +951,12 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '#1e293b' : 'white',
                   borderRadius: '1.5rem',
                   padding: '2.5rem',
                   textAlign: 'center',
-                  boxShadow: '0 8px 15px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee',
+                  boxShadow: isDarkMode ? '0 8px 15px rgba(0,0,0,0.2)' : '0 8px 15px rgba(0,0,0,0.05)',
+                  border: isDarkMode ? '1px solid #334155' : '1px solid #eee',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -954,7 +964,7 @@ const About = () => {
                   margin: '0 auto 1.5rem',
                   padding: '1.5rem',
                   borderRadius: '50%',
-                  backgroundColor: item.color + '15',
+                  backgroundColor: item.color + '20',
                   width: '80px',
                   height: '80px',
                   display: 'flex',
@@ -963,10 +973,10 @@ const About = () => {
                 }}>
                   <item.icon style={{ width: '36px', height: '36px', color: item.color }} />
                 </div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.75rem', color: '#1f2937' }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.75rem', color: isDarkMode ? '#f8fafc' : '#1f2937' }}>
                   {item.title}
                 </h3>
-                <p style={{ color: '#6b7280', lineHeight: '1.6' }}>
+                <p style={{ color: isDarkMode ? '#94a3b8' : '#6b7280', lineHeight: '1.6' }}>
                   {item.description}
                 </p>
               </motion.div>
@@ -976,8 +986,8 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#f8f8f8' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#1e293b' : '#f8fafc' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -987,14 +997,14 @@ const About = () => {
             <h2 style={{
               fontSize: '2.8rem',
               fontWeight: '800',
-              color: '#1f2937',
+              color: isDarkMode ? '#f8fafc' : '#1f2937',
               marginBottom: '1rem'
             }}>
               Our Journey
             </h2>
             <p style={{
               fontSize: '1.2rem',
-              color: '#6b7280',
+              color: isDarkMode ? '#94a3b8' : '#6b7280',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
@@ -1029,11 +1039,11 @@ const About = () => {
               >
                 <div style={{ flex: 1, padding: index % 2 === 0 ? '0 2rem 0 0' : '0 0 0 2rem' }}>
                   <div style={{
-                    backgroundColor: 'white',
+                    backgroundColor: isDarkMode ? '#334155' : 'white',
                     borderRadius: '1rem',
                     padding: '2rem',
-                    boxShadow: '0 8px 15px rgba(0,0,0,0.05)',
-                    border: '1px solid #eee',
+                    boxShadow: isDarkMode ? '0 8px 15px rgba(0,0,0,0.2)' : '0 8px 15px rgba(0,0,0,0.05)',
+                    border: isDarkMode ? '1px solid #475569' : '1px solid #eee',
                     position: 'relative'
                   }}>
                     <div style={{
@@ -1049,10 +1059,10 @@ const About = () => {
                     }}>
                       {milestone.year}
                     </div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem', color: '#1f2937', marginTop: '2rem' }}>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem', color: isDarkMode ? '#f8fafc' : '#1f2937', marginTop: '2rem' }}>
                       {milestone.title}
                     </h3>
-                    <p style={{ color: '#6b7280', lineHeight: '1.6' }}>
+                    <p style={{ color: isDarkMode ? '#94a3b8' : '#6b7280', lineHeight: '1.6' }}>
                       {milestone.description}
                     </p>
                   </div>
@@ -1074,8 +1084,8 @@ const About = () => {
       </section>
 
       {/* Certifications & Awards Section */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#ffffff' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#0f172a' : '#ffffff' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1085,14 +1095,14 @@ const About = () => {
             <h2 style={{
               fontSize: '2.8rem',
               fontWeight: '800',
-              color: '#1f2937',
+              color: isDarkMode ? '#f8fafc' : '#1f2937',
               marginBottom: '1rem'
             }}>
               Certifications & Awards
             </h2>
             <p style={{
               fontSize: '1.2rem',
-              color: '#6b7280',
+              color: isDarkMode ? '#94a3b8' : '#6b7280',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
@@ -1150,12 +1160,12 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '#1e293b' : 'white',
                   borderRadius: '1.5rem',
                   padding: '2rem',
                   textAlign: 'center',
-                  boxShadow: '0 8px 15px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee',
+                  boxShadow: isDarkMode ? '0 8px 15px rgba(0,0,0,0.2)' : '0 8px 15px rgba(0,0,0,0.05)',
+                  border: isDarkMode ? '1px solid #334155' : '1px solid #eee',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -1163,7 +1173,7 @@ const About = () => {
                   margin: '0 auto 1.5rem',
                   padding: '1rem',
                   borderRadius: '50%',
-                  backgroundColor: item.color + '15',
+                  backgroundColor: item.color + '20',
                   width: '70px',
                   height: '70px',
                   display: 'flex',
@@ -1172,10 +1182,10 @@ const About = () => {
                 }}>
                   <item.icon style={{ width: '32px', height: '32px', color: item.color }} />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.75rem', color: '#1f2937' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.75rem', color: isDarkMode ? '#f8fafc' : '#1f2937' }}>
                   {item.title}
                 </h3>
-                <p style={{ color: '#6b7280', lineHeight: '1.6', fontSize: '0.9rem' }}>
+                <p style={{ color: isDarkMode ? '#94a3b8' : '#6b7280', lineHeight: '1.6', fontSize: '0.9rem' }}>
                   {item.description}
                 </p>
               </motion.div>
@@ -1185,13 +1195,14 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
-        padding: '6rem 0',
+      <section className="section-premium" style={{
+        background: isDarkMode 
+          ? 'linear-gradient(135deg, #581c87 0%, #4338ca 100%)'
+          : 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
         color: 'white',
         textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

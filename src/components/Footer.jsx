@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTheme } from '../contexts/ThemeContext'
 import { motion } from 'framer-motion'
 import { 
   FiCode, 
@@ -20,6 +21,7 @@ import {
 } from 'react-icons/fi'
 
 const Footer = () => {
+  const { isDarkMode } = useTheme()
   const currentYear = new Date().getFullYear()
 
   const services = [
@@ -48,7 +50,9 @@ const Footer = () => {
 
   return (
     <footer style={{ 
-      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
+      background: isDarkMode 
+        ? 'linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%)'
+        : 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
       color: 'white',
       borderTop: '1px solid #334155',
       position: 'relative',
@@ -65,7 +69,7 @@ const Footer = () => {
         pointerEvents: 'none'
       }} />
       
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 1rem 2rem', position: 'relative', zIndex: 1 }}>
+      <div className="container-premium" style={{ padding: '4rem 0 2rem', position: 'relative', zIndex: 1 }}>
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 

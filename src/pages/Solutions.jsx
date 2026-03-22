@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
 import { useTheme } from '../contexts/ThemeContext'
@@ -234,17 +235,18 @@ const Solutions = () => {
       
       <div style={{ 
         minHeight: '100vh', 
-        backgroundColor: isDarkMode ? '#111827' : '#ffffff',
+        backgroundColor: isDarkMode ? '#0f172a' : '#fafbfc',
         transition: 'background-color 0.3s ease'
       }}>
-      {/* Hero Section */}
-        <section className="hero" style={{ 
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          padding: '8rem 0 6rem',
-        color: 'white',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
+      {/* Hero Section - Full Viewport */}
+        <section className="hero-full" style={{ 
+          background: isDarkMode 
+            ? 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e1b4b 100%)'
+            : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          color: 'white',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
           {/* Animated Background Elements */}
         <div style={{ 
           position: 'absolute', 
@@ -269,7 +271,7 @@ const Solutions = () => {
             ]}
           />
           
-          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
+          <div className="container-premium" style={{ position: 'relative', zIndex: 2 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -299,13 +301,14 @@ const Solutions = () => {
             </motion.div>
             
             <h1 style={{ 
-                fontSize: '4.5rem', 
-                fontWeight: '800', 
-                marginBottom: '2rem',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', 
+              fontWeight: '800', 
+              marginBottom: '2rem',
               lineHeight: '1.1',
-                textShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                fontFamily: 'Poppins, system-ui, sans-serif',
-                letterSpacing: '-0.02em'
+              color: 'white',
+              textShadow: '0 4px 12px rgba(0,0,0,0.25)',
+              fontFamily: 'Syne, system-ui, sans-serif',
+              letterSpacing: '-0.02em'
             }}>
               Solutions That{' '}
                 <motion.span 
@@ -329,10 +332,10 @@ const Solutions = () => {
               fontSize: '1.25rem', 
               marginBottom: '2.5rem', 
               lineHeight: '1.6',
-              opacity: 0.9,
+              color: 'rgba(255, 255, 255, 0.95)',
               maxWidth: '600px',
-                margin: '0 auto 2.5rem',
-                textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+              margin: '0 auto 2.5rem',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.15)'
             }}>
               Discover our comprehensive suite of business solutions designed to streamline 
               operations, enhance productivity, and accelerate growth.
@@ -342,13 +345,12 @@ const Solutions = () => {
       </section>
 
         {/* Stats Section */}
-        <section className="stats" style={{ 
-          padding: '6rem 0',
-          backgroundColor: '#fafafa',
+        <section className="section-premium stats" style={{ 
+          backgroundColor: isDarkMode ? '#1e293b' : '#fafafa',
           position: 'relative',
           overflow: 'hidden'
         }}>
-          <div className="stats-content" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div className="stats-content container-premium">
           <motion.div
               initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -371,10 +373,10 @@ const Solutions = () => {
                     scaleOnHover={1.02}
                     style={{
                       padding: '3rem 2rem',
-                      background: '#ffffff',
+                      background: isDarkMode ? '#334155' : '#ffffff',
                       borderRadius: '1.5rem',
-                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-                      border: '1px solid rgba(0, 0, 0, 0.05)',
+                      boxShadow: isDarkMode ? '0 4px 20px rgba(0, 0, 0, 0.2)' : '0 4px 20px rgba(0, 0, 0, 0.08)',
+                      border: isDarkMode ? '1px solid #475569' : '1px solid rgba(0, 0, 0, 0.05)',
                       position: 'relative',
                       overflow: 'hidden',
                       height: '100%',
@@ -384,7 +386,7 @@ const Solutions = () => {
                     <div style={{ 
                       fontSize: '3.5rem', 
                       fontWeight: '700', 
-                      color: '#1f2937', 
+                      color: isDarkMode ? '#f8fafc' : '#1f2937', 
                       marginBottom: '1rem',
                       fontFamily: 'Poppins, system-ui, sans-serif',
                       textAlign: 'center',
@@ -393,7 +395,7 @@ const Solutions = () => {
                       {stat.number}
                     </div>
                     <div style={{ 
-                      color: '#6b7280', 
+                      color: isDarkMode ? '#94a3b8' : '#6b7280', 
                       fontSize: '1.125rem', 
                       fontWeight: '500',
                       lineHeight: '1.4',
@@ -409,12 +411,11 @@ const Solutions = () => {
         </section>
 
         {/* Solutions Section */}
-        <section className="services" style={{ 
-          padding: '6rem 0', 
-          backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
+        <section className="section-premium services" style={{ 
+          backgroundColor: isDarkMode ? '#0f172a' : '#ffffff',
           position: 'relative'
         }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div className="container-premium">
             <ScrollTriggeredAnimation animation="fadeInUp">
               <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 style={{ 
@@ -1647,28 +1648,30 @@ const Solutions = () => {
                     Let's discuss how our solutions can help you achieve your business goals and drive growth.
                   </p>
                   
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.2)',
-                      color: 'white',
-                      border: '2px solid rgba(255, 255, 255, 0.3)',
-                padding: '1rem 2rem',
-                      borderRadius: '1rem',
-                fontSize: '1rem',
-                      fontWeight: '600',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                      gap: '0.75rem',
-                      backdropFilter: 'blur(10px)',
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    Get Started Today
-                <FiArrowRight style={{ width: '16px', height: '16px' }} />
-                  </motion.button>
+                  <Link to="/contact" style={{ textDecoration: 'none' }}>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.2)',
+                        color: 'white',
+                        border: '2px solid rgba(255, 255, 255, 0.3)',
+                        padding: '1rem 2rem',
+                        borderRadius: '1rem',
+                        fontSize: '1rem',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                        backdropFilter: 'blur(10px)',
+                        transition: 'all 0.3s ease'
+                      }}
+                    >
+                      Get Started Today
+                      <FiArrowRight style={{ width: '16px', height: '16px' }} />
+                    </motion.button>
+                  </Link>
             </div>
               </div>
             </ScrollTriggeredAnimation>

@@ -1,6 +1,6 @@
-/* Modern CSS for NeuraStack Solutions Website */
+/* Premium Design System - NeuraStack Solutions */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 /* Performance Optimizations */
 * {
@@ -84,9 +84,9 @@ html {
   --dark-text-secondary: #a3a3a3;
   --dark-text-tertiary: #737373;
 
-  /* Typography */
-  --font-primary: 'Inter', system-ui, sans-serif;
-  --font-display: 'Poppins', system-ui, sans-serif;
+  /* Typography - Premium */
+  --font-primary: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Syne', system-ui, sans-serif;
   
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -153,6 +153,12 @@ html {
   --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Premium Section Spacing */
+  --section-padding: clamp(5rem, 10vw, 8rem);
+  --section-padding-sm: clamp(3rem, 6vw, 5rem);
+  --page-min-height: 100vh;
+  --hero-min-height: 100vh;
 
   /* Z-Index */
   --z-dropdown: 1000;
@@ -221,12 +227,35 @@ body {
   overflow-x: hidden;
 }
 
-/* Modern Typography Scale */
+/* Premium Page Layout */
+.page-wrapper {
+  min-height: var(--page-min-height);
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper main {
+  flex: 1 0 auto;
+}
+
+.hero-full {
+  min-height: var(--hero-min-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-padding) var(--space-6);
+}
+
+.section-premium {
+  padding: var(--section-padding) 0;
+}
+
+/* Premium Typography Scale */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: var(--gray-900);
   margin: 0;
 }
@@ -592,6 +621,37 @@ header {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--space-6);
+}
+
+.container-premium {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(var(--space-4), 5vw, var(--space-12));
+}
+
+/* Premium Card */
+.card-premium {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .card-premium {
+  background: var(--dark-surface);
+  border-color: var(--dark-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.18);
+  border-color: transparent;
+}
+
+.dark .card-premium:hover {
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.4);
 }
 
 .section-title {
@@ -1490,6 +1550,68 @@ footer::before {
     flex-direction: column;
     text-align: center;
     gap: var(--space-3);
+  }
+}
+
+/* Header - Navigation responsive */
+@media (max-width: 768px) {
+  .header-phone {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-nav {
+    gap: 0.5rem !important;
+  }
+  
+  .header-nav .nav-link {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Contact Form - Full width on mobile */
+@media (max-width: 768px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Featured Products - Mobile (iPhone, Android) */
+@media (max-width: 768px) {
+  .featured-products-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 0.5rem;
+  }
+  
+  .featured-products-grid > * {
+    padding: 1.5rem !important;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-products-grid {
+    gap: 1.25rem !important;
+  }
+  
+  .featured-products-grid h3 {
+    font-size: 1.35rem !important;
+  }
+  
+  .featured-products-grid p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Services Overview - Mobile */
+@media (max-width: 768px) {
+  .services-overview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
 }
 

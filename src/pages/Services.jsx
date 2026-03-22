@@ -235,12 +235,14 @@ const Services = () => {
       />
       <div style={{ 
         minHeight: '100vh', 
-        backgroundColor: isDarkMode ? '#111827' : '#f8fafc',
+        backgroundColor: isDarkMode ? '#0f172a' : '#fafbfc',
         transition: 'background-color 0.3s ease'
       }}>
-      {/* Hero Section */}
-      <section className="hero" style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+      {/* Hero Section - Full Viewport */}
+      <section className="hero-full" style={{
+        background: isDarkMode 
+          ? 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #581c87 100%)'
+          : 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -256,7 +258,7 @@ const Services = () => {
           animation: 'float 20s ease-in-out infinite'
         }} />
         
-        <div className="hero-content" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
+        <div className="container-premium hero-content" style={{ position: 'relative', zIndex: 2 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -357,8 +359,8 @@ const Services = () => {
       </section>
 
       {/* Stats Section */}
-      <section style={{ padding: '5rem 0', backgroundColor: '#ffffff' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#1e293b' : '#ffffff' }}>
+        <div className="container-premium">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -376,11 +378,11 @@ const Services = () => {
                 key={stat.label}
                 variants={itemVariants}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '#334155' : 'white',
                   borderRadius: '1rem',
                   padding: '2rem',
-                  boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee',
+                  boxShadow: isDarkMode ? '0 10px 20px rgba(0,0,0,0.2)' : '0 10px 20px rgba(0,0,0,0.05)',
+                  border: isDarkMode ? '1px solid #475569' : '1px solid #eee',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
@@ -388,8 +390,8 @@ const Services = () => {
                 }}
               >
                 <stat.icon style={{ width: '48px', height: '48px', color: '#667eea', marginBottom: '0.5rem' }} />
-                <div style={{ fontSize: '2.8rem', fontWeight: '800', color: '#1f2937' }}>{stat.number}</div>
-                <div style={{ fontSize: '1.1rem', color: '#6b7280', fontWeight: '600' }}>{stat.label}</div>
+                <div style={{ fontSize: '2.8rem', fontWeight: '800', color: isDarkMode ? '#f8fafc' : '#1f2937' }}>{stat.number}</div>
+                <div style={{ fontSize: '1.1rem', color: isDarkMode ? '#94a3b8' : '#6b7280', fontWeight: '600' }}>{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -397,8 +399,8 @@ const Services = () => {
       </section>
 
       {/* Service Categories */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#f8f8f8' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#0f172a' : '#f8fafc' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -408,14 +410,14 @@ const Services = () => {
             <h2 style={{
               fontSize: '2.8rem',
               fontWeight: '800',
-              color: '#1f2937',
+              color: isDarkMode ? '#f8fafc' : '#1f2937',
               marginBottom: '1rem'
             }}>
               Our Service Categories
             </h2>
             <p style={{
               fontSize: '1.2rem',
-              color: '#6b7280',
+              color: isDarkMode ? '#94a3b8' : '#6b7280',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
@@ -474,11 +476,11 @@ const Services = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    backgroundColor: 'white',
+                    backgroundColor: isDarkMode ? '#1e293b' : 'white',
                     borderRadius: '1.5rem',
                     padding: '3rem',
-                    boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
-                    border: '1px solid #eee'
+                    boxShadow: isDarkMode ? '0 10px 20px rgba(0,0,0,0.2)' : '0 10px 20px rgba(0,0,0,0.05)',
+                    border: isDarkMode ? '1px solid #334155' : '1px solid #eee'
                   }}
                 >
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }}>
@@ -880,13 +882,15 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
+      <section className="section-premium" style={{
+        background: isDarkMode 
+          ? 'linear-gradient(135deg, #581c87 0%, #4338ca 100%)'
+          : 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
         padding: '6rem 0',
         color: 'white',
         textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

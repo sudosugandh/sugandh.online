@@ -66,9 +66,8 @@ const AppContent = () => {
   return (
     <>
       <PageLoader isLoading={isLoading} message={loadingMessage} />
-      <div style={{ 
-        minHeight: '100vh', 
-        backgroundColor: isDarkMode ? '#111827' : '#fff',
+      <div className="page-wrapper" style={{ 
+        backgroundColor: isDarkMode ? '#0f172a' : '#fafbfc',
         transition: 'background-color 0.3s ease, opacity 0.5s ease',
         opacity: isLoading ? 0 : 1
       }}>
@@ -78,9 +77,11 @@ const AppContent = () => {
             <SEO />
             <Header />
             <motion.main
+              className="flex-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
+              style={{ flex: 1 }}
             >
               <Suspense fallback={<CardSkeleton count={3} />}>
                 <Routes>

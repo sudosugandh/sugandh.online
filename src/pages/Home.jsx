@@ -19,7 +19,9 @@ import {
   FiChevronRight,
   FiPlay,
   FiExternalLink,
-  FiSmartphone
+  FiSmartphone,
+  FiBook,
+  FiMessageCircle
 } from 'react-icons/fi'
 import AnimatedButton from '../components/AnimatedButton'
 import AnimatedCard from '../components/AnimatedCard'
@@ -209,16 +211,15 @@ const Home = () => {
 
   return (
     <div style={{ minHeight: '100vh' }}>
-      {/* Hero Section */}
-      <section style={{ 
+      {/* Hero Section - Full Viewport */}
+      <section className="hero-full" style={{ 
         background: isDarkMode 
-          ? '#0f172a'
-          : '#ffffff',
-        padding: '6rem 0 4rem',
+          ? 'linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)'
+          : 'linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem', width: '100%' }}>
+        <div className="container-premium" style={{ width: '100%' }}>
           {/* Main Hero Content */}
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <motion.div
@@ -228,12 +229,13 @@ const Home = () => {
               style={{ marginBottom: '2rem' }}
             >
               <h1 style={{
-                fontSize: '3.5rem',
-                fontWeight: '700',
-                color: isDarkMode ? '#ffffff' : '#1e293b',
+                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                fontWeight: '800',
+                fontFamily: 'Syne, system-ui, sans-serif',
+                color: isDarkMode ? '#ffffff' : '#0f172a',
                 marginBottom: '1rem',
                 lineHeight: '1.1',
-                letterSpacing: '-0.02em'
+                letterSpacing: '-0.03em'
               }}>
                 Enabling Digital Business Solutions
               </h1>
@@ -301,9 +303,9 @@ const Home = () => {
               </p>
             </motion.div>
 
-            <div style={{
+            <div className="featured-products-grid" style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))',
               gap: '2rem',
               marginBottom: '4rem'
             }}>
@@ -564,13 +566,259 @@ const Home = () => {
                   </div>
                 </div>
               </motion.div>
+
+              {/* LMS - Learning Management System */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.35 }}
+                style={{ 
+                  background: isDarkMode 
+                    ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(245, 158, 11, 0.08) 100%)'
+                    : 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%)',
+                  padding: '2.5rem',
+                  borderRadius: '2rem',
+                  border: `1px solid ${isDarkMode ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`,
+                  boxShadow: '0 15px 35px rgba(59, 130, 246, 0.1)',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+                whileHover={{ y: -8, boxShadow: '0 25px 50px rgba(59, 130, 246, 0.2)' }}
+              >
+                <div style={{
+                  position: 'absolute',
+                  top: '-50px',
+                  right: '-50px',
+                  width: '100px',
+                  height: '100px',
+                  background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
+                  borderRadius: '50%',
+                  opacity: 0.1,
+                  filter: 'blur(40px)'
+                }} />
+                <div style={{ position: 'relative', zIndex: 2 }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    marginBottom: '1.5rem'
+                  }}>
+                    <div style={{
+                      width: '50px',
+                      height: '50px',
+                      background: 'linear-gradient(135deg, #3b82f6 0%, #f59e0b 100%)',
+                      borderRadius: '1rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 8px 20px rgba(59, 130, 246, 0.3)'
+                    }}>
+                      <FiBook style={{ width: '22px', height: '22px', color: 'white' }} />
+                    </div>
+                    <div>
+                      <span style={{
+                        background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        fontSize: '0.875rem',
+                        fontWeight: '600',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em'
+                      }}>
+                        Education Technology
+                      </span>
+                    </div>
+                  </div>
+                  <h3 style={{
+                    fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+                    fontWeight: '700',
+                    color: isDarkMode ? '#ffffff' : '#1e293b',
+                    marginBottom: '1rem',
+                    lineHeight: '1.2'
+                  }}>
+                    LMS - Learning Management System
+                  </h3>
+                  <p style={{
+                    fontSize: '1.125rem',
+                    color: isDarkMode ? '#cbd5e1' : '#64748b',
+                    lineHeight: '1.6',
+                    marginBottom: '1.5rem'
+                  }}>
+                    Deliver engaging learning experiences with our comprehensive LMS. Course management, assessments, certifications, and analytics—all in one platform built for educators, enterprises, and training organizations.
+                  </p>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    flexWrap: 'wrap'
+                  }}>
+                    <Link to="/contact" style={{ textDecoration: 'none' }}>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        style={{
+                          background: 'linear-gradient(135deg, #3b82f6 0%, #f59e0b 100%)',
+                          color: 'white',
+                          border: 'none',
+                          padding: '0.75rem 1.5rem',
+                          borderRadius: '1.5rem',
+                          fontSize: '0.875rem',
+                          fontWeight: '600',
+                          cursor: 'pointer',
+                          boxShadow: '0 8px 20px rgba(59, 130, 246, 0.3)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem'
+                        }}
+                      >
+                        Learn More
+                        <FiArrowRight style={{ width: '14px', height: '14px' }} />
+                      </motion.button>
+                    </Link>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      color: isDarkMode ? '#cbd5e1' : '#64748b',
+                      fontSize: '0.875rem'
+                    }}>
+                      <FiTrendingUp style={{ width: '16px', height: '16px', color: '#3b82f6' }} />
+                      <span>Scalable</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* AI Bots */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                style={{ 
+                  background: isDarkMode 
+                    ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.08) 100%)'
+                    : 'linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%)',
+                  padding: '2.5rem',
+                  borderRadius: '2rem',
+                  border: `1px solid ${isDarkMode ? 'rgba(139, 92, 246, 0.2)' : 'rgba(139, 92, 246, 0.1)'}`,
+                  boxShadow: '0 15px 35px rgba(139, 92, 246, 0.1)',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+                whileHover={{ y: -8, boxShadow: '0 25px 50px rgba(139, 92, 246, 0.2)' }}
+              >
+                <div style={{
+                  position: 'absolute',
+                  top: '-50px',
+                  right: '-50px',
+                  width: '100px',
+                  height: '100px',
+                  background: 'linear-gradient(135deg, #8b5cf6, #06b6d4)',
+                  borderRadius: '50%',
+                  opacity: 0.1,
+                  filter: 'blur(40px)'
+                }} />
+                <div style={{ position: 'relative', zIndex: 2 }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    marginBottom: '1.5rem'
+                  }}>
+                    <div style={{
+                      width: '50px',
+                      height: '50px',
+                      background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
+                      borderRadius: '1rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 8px 20px rgba(139, 92, 246, 0.3)'
+                    }}>
+                      <FiMessageCircle style={{ width: '22px', height: '22px', color: 'white' }} />
+                    </div>
+                    <div>
+                      <span style={{
+                        background: 'linear-gradient(135deg, #8b5cf6, #06b6d4)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        fontSize: '0.875rem',
+                        fontWeight: '600',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em'
+                      }}>
+                        AI & Automation
+                      </span>
+                    </div>
+                  </div>
+                  <h3 style={{
+                    fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+                    fontWeight: '700',
+                    color: isDarkMode ? '#ffffff' : '#1e293b',
+                    marginBottom: '1rem',
+                    lineHeight: '1.2'
+                  }}>
+                    AI Bots & Intelligent Automation
+                  </h3>
+                  <p style={{
+                    fontSize: '1.125rem',
+                    color: isDarkMode ? '#cbd5e1' : '#64748b',
+                    lineHeight: '1.6',
+                    marginBottom: '1.5rem'
+                  }}>
+                    Deploy intelligent chatbots and automation solutions powered by AI. Customer support bots, workflow automation, and conversational AI tailored to your business—available 24/7 across web, mobile, and messaging platforms.
+                  </p>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    flexWrap: 'wrap'
+                  }}>
+                    <Link to="/contact" style={{ textDecoration: 'none' }}>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        style={{
+                          background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
+                          color: 'white',
+                          border: 'none',
+                          padding: '0.75rem 1.5rem',
+                          borderRadius: '1.5rem',
+                          fontSize: '0.875rem',
+                          fontWeight: '600',
+                          cursor: 'pointer',
+                          boxShadow: '0 8px 20px rgba(139, 92, 246, 0.3)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem'
+                        }}
+                      >
+                        Explore Solutions
+                        <FiArrowRight style={{ width: '14px', height: '14px' }} />
+                      </motion.button>
+                    </Link>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      color: isDarkMode ? '#cbd5e1' : '#64748b',
+                      fontSize: '0.875rem'
+                    }}>
+                      <FiCpu style={{ width: '16px', height: '16px', color: '#8b5cf6' }} />
+                      <span>AI-Powered</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Services Overview Cards */}
-          <div style={{
+          <div className="services-overview-grid" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '2rem',
             marginBottom: '4rem'
           }}>
@@ -769,14 +1017,13 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section style={{ 
-        padding: '4rem 0', 
+      <section className="section-premium" style={{ 
         background: isDarkMode 
           ? 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'
           : 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)',
         position: 'relative'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -822,13 +1069,12 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section style={{
-        padding: '6rem 0',
+      <section className="section-premium" style={{
         background: isDarkMode 
           ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
           : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -913,8 +1159,7 @@ const Home = () => {
       </section>
 
       {/* Tech Stack Section */}
-      <section style={{ 
-        padding: '6rem 0', 
+      <section className="section-premium" style={{ 
         background: isDarkMode 
           ? 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'
           : 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)',
@@ -933,7 +1178,7 @@ const Home = () => {
             : 'radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.02) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.02) 0%, transparent 50%)',
           zIndex: 0
         }} />
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
+        <div className="container-premium" style={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1015,13 +1260,12 @@ const Home = () => {
       </section>
 
       {/* Development Process Section */}
-      <section style={{
-        padding: '6rem 0',
+      <section className="section-premium" style={{
         background: isDarkMode 
           ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
           : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1108,13 +1352,12 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section style={{
-        padding: '6rem 0',
+      <section className="section-premium" style={{
         background: isDarkMode 
           ? 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'
           : 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1221,15 +1464,14 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section style={{ 
-        padding: '6rem 0', 
+      <section className="section-premium" style={{ 
         background: isDarkMode 
           ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
           : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1247,7 +1489,9 @@ const Home = () => {
             <h2 style={{ 
               fontSize: '3rem',
               fontWeight: '800',
-              marginBottom: '1rem'
+              marginBottom: '1rem',
+              color: 'white',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
             }}>
               Ready to Start Your Project?
             </h2>
@@ -1255,9 +1499,10 @@ const Home = () => {
             <p style={{ 
               fontSize: '1.25rem',
               marginBottom: '2.5rem',
-              opacity: 0.9,
+              color: 'rgba(255, 255, 255, 0.95)',
               maxWidth: '600px',
-              margin: '0 auto 2.5rem'
+              margin: '0 auto 2.5rem',
+              textShadow: '0 1px 3px rgba(0, 0, 0, 0.15)'
             }}>
               Let's discuss your requirements and create something amazing together. 
               Get in touch with our team today.

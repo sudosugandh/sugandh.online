@@ -148,17 +148,21 @@ const Contact = () => {
   }
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f8f8f8' }}>
-      {/* Hero Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        padding: '6rem 0 8rem',
+    <div style={{ 
+      minHeight: '100vh', 
+      backgroundColor: isDarkMode ? '#0f172a' : '#fafbfc' 
+    }}>
+      {/* Hero Section - Full Viewport */}
+      <section className="hero-full" style={{
+        background: isDarkMode 
+          ? 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #581c87 100%)'
+          : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         color: 'white',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -190,8 +194,8 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section style={{ padding: '5rem 0', backgroundColor: '#ffffff' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#1e293b' : '#ffffff' }}>
+        <div className="container-premium">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -209,12 +213,12 @@ const Contact = () => {
                 variants={itemVariants}
                 whileHover={{ y: -8, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '#334155' : 'white',
                   borderRadius: '1.5rem',
                   padding: '2.5rem',
                   textAlign: 'center',
-                  boxShadow: '0 8px 15px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee',
+                  boxShadow: isDarkMode ? '0 8px 15px rgba(0,0,0,0.2)' : '0 8px 15px rgba(0,0,0,0.05)',
+                  border: isDarkMode ? '1px solid #475569' : '1px solid #eee',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -222,7 +226,7 @@ const Contact = () => {
                   margin: '0 auto 1.5rem',
                   padding: '1.5rem',
                   borderRadius: '50%',
-                  backgroundColor: info.color + '15',
+                  backgroundColor: info.color + '20',
                   width: '80px',
                   height: '80px',
                   display: 'flex',
@@ -231,13 +235,13 @@ const Contact = () => {
                 }}>
                   <info.icon style={{ width: '36px', height: '36px', color: info.color }} />
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem', color: '#1f2937' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem', color: isDarkMode ? '#f8fafc' : '#1f2937' }}>
                   {info.title}
                 </h3>
                 <p style={{ fontSize: '1rem', fontWeight: '600', color: info.color, marginBottom: '0.5rem' }}>
                   {info.info}
                 </p>
-                <p style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+                <p style={{ color: isDarkMode ? '#94a3b8' : '#6b7280', fontSize: '0.9rem' }}>
                   {info.description}
                 </p>
               </motion.div>
@@ -247,9 +251,9 @@ const Contact = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#f8f8f8' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
-          <div style={{
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#0f172a' : '#f8fafc' }}>
+        <div className="container-premium">
+          <div className="contact-form-grid" style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '4rem',
@@ -261,23 +265,23 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               style={{
-                backgroundColor: 'white',
+                backgroundColor: isDarkMode ? '#1e293b' : 'white',
                 borderRadius: '1.5rem',
                 padding: '3rem',
-                boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
-                border: '1px solid #eee'
+                boxShadow: isDarkMode ? '0 10px 20px rgba(0,0,0,0.2)' : '0 10px 20px rgba(0,0,0,0.05)',
+                border: isDarkMode ? '1px solid #334155' : '1px solid #eee'
               }}
             >
               <h2 style={{
                 fontSize: '2rem',
                 fontWeight: '700',
-                color: '#1f2937',
+                color: isDarkMode ? '#f8fafc' : '#1f2937',
                 marginBottom: '1rem'
               }}>
                 Send us a Message
               </h2>
               <p style={{
-                color: '#6b7280',
+                color: isDarkMode ? '#94a3b8' : '#6b7280',
                 marginBottom: '2rem',
                 lineHeight: '1.6'
               }}>
@@ -293,18 +297,18 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               style={{
-                backgroundColor: 'white',
+                backgroundColor: isDarkMode ? '#1e293b' : 'white',
                 borderRadius: '1.5rem',
                 padding: '3rem',
-                boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
-                border: '1px solid #eee',
+                boxShadow: isDarkMode ? '0 10px 20px rgba(0,0,0,0.2)' : '0 10px 20px rgba(0,0,0,0.05)',
+                border: isDarkMode ? '1px solid #334155' : '1px solid #eee',
                 height: 'fit-content'
               }}
             >
               <h2 style={{
                 fontSize: '2rem',
                 fontWeight: '700',
-                color: '#1f2937',
+                color: isDarkMode ? '#f8fafc' : '#1f2937',
                 marginBottom: '1.5rem'
               }}>
                 Why Choose Us?
@@ -450,8 +454,8 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#ffffff' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#1e293b' : '#ffffff' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -461,14 +465,14 @@ const Contact = () => {
             <h2 style={{
               fontSize: '2.8rem',
               fontWeight: '800',
-              color: '#1f2937',
+              color: isDarkMode ? '#f8fafc' : '#1f2937',
               marginBottom: '1rem'
             }}>
               Frequently Asked Questions
             </h2>
             <p style={{
               fontSize: '1.2rem',
-              color: '#6b7280',
+              color: isDarkMode ? '#94a3b8' : '#6b7280',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
@@ -490,9 +494,9 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '#334155' : 'white',
                   borderRadius: '0.75rem',
-                  border: '1px solid #e5e7eb',
+                  border: isDarkMode ? '1px solid #475569' : '1px solid #e5e7eb',
                   overflow: 'hidden',
                   transition: 'all 0.3s ease'
                 }}
@@ -511,7 +515,7 @@ const Contact = () => {
                     alignItems: 'center',
                     fontSize: '1.1rem',
                     fontWeight: '600',
-                    color: '#1f2937',
+                    color: isDarkMode ? '#f8fafc' : '#1f2937',
                     transition: 'all 0.2s ease'
                   }}
                   onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
@@ -532,7 +536,7 @@ const Contact = () => {
                     transition={{ duration: 0.3 }}
                     style={{
                       padding: '0 1.5rem 1.5rem',
-                      color: '#6b7280',
+                      color: isDarkMode ? '#94a3b8' : '#6b7280',
                       lineHeight: '1.6'
                     }}
                   >
@@ -546,8 +550,8 @@ const Contact = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section style={{ padding: '6rem 0', backgroundColor: '#f8f8f8' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+      <section className="section-premium" style={{ backgroundColor: isDarkMode ? '#0f172a' : '#f8fafc' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -557,14 +561,14 @@ const Contact = () => {
             <h2 style={{
               fontSize: '2.8rem',
               fontWeight: '800',
-              color: '#1f2937',
+              color: isDarkMode ? '#f8fafc' : '#1f2937',
               marginBottom: '1rem'
             }}>
               What Our Clients Say
             </h2>
             <p style={{
               fontSize: '1.2rem',
-              color: '#6b7280',
+              color: isDarkMode ? '#94a3b8' : '#6b7280',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
@@ -585,11 +589,11 @@ const Contact = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '#1e293b' : 'white',
                   borderRadius: '1.5rem',
                   padding: '2rem',
-                  boxShadow: '0 8px 15px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee',
+                  boxShadow: isDarkMode ? '0 8px 15px rgba(0,0,0,0.2)' : '0 8px 15px rgba(0,0,0,0.05)',
+                  border: isDarkMode ? '1px solid #334155' : '1px solid #eee',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -623,10 +627,10 @@ const Contact = () => {
                     {testimonial.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#1f2937', marginBottom: '0.25rem' }}>
+                    <h4 style={{ fontSize: '1rem', fontWeight: '600', color: isDarkMode ? '#f8fafc' : '#1f2937', marginBottom: '0.25rem' }}>
                       {testimonial.name}
                     </h4>
-                    <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+                    <p style={{ fontSize: '0.875rem', color: isDarkMode ? '#94a3b8' : '#6b7280' }}>
                       {testimonial.role}
                     </p>
                   </div>
@@ -638,13 +642,14 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
-        padding: '6rem 0',
+      <section className="section-premium" style={{
+        background: isDarkMode 
+          ? 'linear-gradient(135deg, #581c87 0%, #4338ca 100%)'
+          : 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
         color: 'white',
         textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+        <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
